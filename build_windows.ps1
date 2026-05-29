@@ -22,7 +22,7 @@ if (Test-Path $portableAppPath) {
     Remove-Item -LiteralPath $portableAppPath -Recurse -Force
 }
 
-New-Item -ItemType Directory -Path $finalProductPath -Force | Out-Null
-Copy-Item -Path $builtAppPath -Destination $portableAppPath -Recurse -Force
+New-Item -ItemType Directory -Path $portableAppPath -Force | Out-Null
+Copy-Item -Path "$builtAppPath\*" -Destination $portableAppPath -Recurse -Force
 
 Write-Host "Build complete: $portableAppPath\AIInterviewAssist.exe"
