@@ -14,4 +14,15 @@ python -m PyInstaller `
     --add-data "ai_interview_assist;ai_interview_assist" `
     .\main.py
 
-Write-Host "Build complete: dist\AIInterviewAssist\AIInterviewAssist.exe"
+$finalProductPath = Join-Path $PSScriptRoot "final-product"
+$portableAppPath = Join-Path $finalProductPath "AI-Interview-Assist"
+$builtAppPath = Join-Path $PSScriptRoot "dist\AIInterviewAssist"
+
+if (Test-Path $portableAppPath) {
+    Remove-Item -LiteralPath $portableAppPath -Recurse -Force
+}
+
+New-Item -ItemType Directory -Path $finalProductPath -Force | Out-Null
+Copy-Item -Path $builtAppPath -Destination $portableAppPath -Recurse -Force
+
+Write-Host "Build complete: $portableAppPath\AIInterviewAssist.exe"

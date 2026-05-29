@@ -67,15 +67,21 @@ Use `Draft Now` when you want to generate immediately.
 .\build_windows.ps1
 ```
 
-The executable is created at:
+The portable application is copied to:
 
 ```text
-dist\AIInterviewAssist\AIInterviewAssist.exe
+final-product\AI-Interview-Assist\AIInterviewAssist.exe
 ```
 
 ## Build Installer
 
 After building the EXE, open `installer\AIInterviewAssist.iss` in Inno Setup and compile it. The installer has `MinVersion=10.0`, so it only installs on Windows 10 and Windows 11.
+
+The final installer is saved to:
+
+```text
+final-product\AI-Interview-Assist-Setup.exe
+```
 
 ## GitHub Actions Build
 
@@ -83,8 +89,16 @@ The workflow at `.github/workflows/windows-build.yml` runs only on a Windows run
 
 After the workflow finishes, download:
 
-- `AIInterviewAssist-windows-installer` for the final installer EXE
-- `AIInterviewAssist-windows-exe` for the unpacked portable app folder
+- `AI-Interview-Assist-final-product` for the complete final output folder
+- `AI-Interview-Assist-final-product-installer` for only the setup EXE
+- `AI-Interview-Assist-final-product-portable` for only the portable app folder
+
+The complete final product artifact contains:
+
+```text
+final-product\AI-Interview-Assist\AIInterviewAssist.exe
+final-product\AI-Interview-Assist-Setup.exe
+```
 
 The generated installer is still Windows-only because the installer script uses:
 

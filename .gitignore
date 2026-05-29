@@ -7,5 +7,6 @@ env/
 build/
 dist/
 installer-output/
+final-product/
 *.spec
 .pytest_cache/

@@ -38,8 +38,8 @@ jobs:
       - name: Upload executable artifact
         uses: actions/upload-artifact@v4
         with:
-          name: AIInterviewAssist-windows-exe
-          path: dist/AIInterviewAssist/**
+          name: AI-Interview-Assist-final-product-portable
+          path: final-product/AI-Interview-Assist/**
           if-no-files-found: error
 
       - name: Compile installer
@@ -59,6 +59,13 @@ jobs:
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
-          name: AIInterviewAssist-windows-installer
-          path: installer-output/*.exe
+          name: AI-Interview-Assist-final-product-installer
+          path: final-product/AI-Interview-Assist-Setup.exe
+          if-no-files-found: error
+
+      - name: Upload complete final product
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI-Interview-Assist-final-product
+          path: final-product/**
           if-no-files-found: error
